@@ -1,11 +1,11 @@
 {
-  "name": "my-expess-server",
+  "name": "calculator",
   "version": "1.0.0",
   "description": "my express server server express my",
-  "main": "server.js",
+  "main": "calculator.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node calculator.js"
   },
   "author": "cam",
   "license": "ISC",
