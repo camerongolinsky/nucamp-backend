@@ -1,7 +1,7 @@
 const express = require('express');
-const campsiteRouter = express.Router();
+const partnerRouter = express.Router();
 
-campsiteRouter.route('/')
+partnerRouter.route('/')
 
 .all((req, res, next) => {
     res.statusCode = 200;
@@ -21,14 +21,16 @@ campsiteRouter.route('/')
   
   .put((req, res) => {
     res.statusCode = 403;
-    res.end("PUT operation not supported on /campsites");
+    res.end("PUT operation not supported on /partners");
   })
   
   .delete((req, res) => {
     res.end("Deleting all campsites");
   });
 
-campsiteRouter.route('/:campsiteId')
+
+
+  partnerRouter.route('/:partnerId')
 
 .all((req, res, next) => {
     res.statusCode = 200;
@@ -37,23 +39,22 @@ campsiteRouter.route('/:campsiteId')
   })
   
   .get((req, res) => {
-    res.end(`Will send details of the campsite: ${req.params.campsiteId} to you`);
+    res.end("Will send all the campsites to you");
   })
   
   .post((req, res) => {
     res.end(
-      `POST operation not supported on /campsites/${req.params.campsiteId}`
+      `Will add the campsite: ${req.body.nome} with description ${req.body.description}`
     );
   })
   
   .put((req, res) => {
-    res.write(`Updatting the capsite: ${req.params.campsiteId}\n`)
-    res.end(`Will update the campsite: ${req.body.name} with description: ${req.body.description}`);
+    res.statusCode = 403;
+    res.end("PUT operation not supported on /partners");
   })
   
   .delete((req, res) => {
-    res.end(` Deleting campsite: ${req.params.campsiteId}`);
+    res.end("Deleting all campsites");
   });
-  
-  
-module.exports = campsiteRouter
+
+  module.exports = partnerRouter
